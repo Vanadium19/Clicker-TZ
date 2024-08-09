@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 113032512}
   - component: {fileID: 113032514}
   - component: {fileID: 113032511}
+  - component: {fileID: 113032515}
   m_Layer: 0
   m_Name: ClickHandler
   m_TagString: Untagged
@@ -266,6 +267,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &113032515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113032510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f986005d6b97f446ab1036b1b816f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clickEffectPrefab: {fileID: 4836625891967978193, guid: 3457c6abfa11ce944a81d8c746434d07, type: 3}
+  _canvas: {fileID: 1905730896}
 --- !u!1 &401164493
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +808,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1905730896
 RectTransform:
@@ -931,8 +946,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1905730896}
   - {fileID: 421658531}
   - {fileID: 588496947}
   - {fileID: 1323649166}
   - {fileID: 1988651300}
+  - {fileID: 1905730896}
