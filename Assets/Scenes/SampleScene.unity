@@ -908,6 +908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clickConfig: {fileID: 11400000, guid: 0e884b90989861946831e584bf00f297, type: 2}
   _autoCollectorConfig: {fileID: 11400000, guid: 6f265f5d0e214924ba424cd134efb1d0, type: 2}
+  _critConfig: {fileID: 11400000, guid: c92ec4c6e9d61ed408188082dd28a263, type: 2}
   _currencyAdder: {fileID: 1323649165}
 --- !u!114 &2002232105
 MonoBehaviour:
