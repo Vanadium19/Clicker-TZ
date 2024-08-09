@@ -8,7 +8,7 @@ public class ClicksCountView : MonoBehaviour
     [SerializeField] private TMP_Text _countView;
 
     [Inject]
-    private IClickHandler _clickHandler;
+    private ICurrencyAdder _clickHandler;
 
     private void Start()
     {
