@@ -3,10 +3,15 @@ using Zenject;
 
 public class MainSceneInstaller : MonoInstaller
 {
-    [SerializeField] private ClickHandler _clickHandler;
+    [SerializeField] private ClickConfig _clickConfig;
+    [SerializeField] private AutoCollectorConfig _autoCollectorConfig;
+    [SerializeField] private CurrencyAdder _currencyAdder;
 
     public override void InstallBindings()
     {
-        Container.Bind<IClickHandler>().FromInstance(_clickHandler);
+        Container.Bind<ClickConfig>().FromInstance(_clickConfig);
+        Container.Bind<AutoCollectorConfig>().FromInstance(_autoCollectorConfig);
+        Container.Bind<ICurrencyAdder>().FromInstance(_currencyAdder);
+        Container.Bind<IClickValue>().To<ClickValue>().AsSingle();
     }
 }
