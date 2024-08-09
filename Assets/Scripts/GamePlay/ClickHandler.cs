@@ -1,23 +1,21 @@
-using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
-public class ClickHandler : MonoBehaviour, IPointerClickHandler, IClickHandler
+public class ClickHandler : MonoBehaviour, IPointerClickHandler
 {
-    private ReactiveProperty<int> _clicksCount;
-
-    public IReadOnlyReactiveProperty<int> ClicksCount => _clicksCount;
-
-    private void Awake()
-    {
-        _clicksCount = new ReactiveProperty<int>();
-
-        _clicksCount.Value = GameSaver.ClicksCount;
-    }
+    private IClickValue _clickValue;
+    private ICurrencyAdder _currencyAdder;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        _clicksCount.Value++;
-        GameSaver.SaveClicks(_clicksCount.Value);
+        _currencyAdder.AddCurrency(_clickValue.Value);
+    }
+
+    [Inject]
+    private void Construct(IClickValue clickValue, ICurrencyAdder currencyAdder)
+    {
+        _clickValue = clickValue;
+        _currencyAdder = currencyAdder;
     }
 }
