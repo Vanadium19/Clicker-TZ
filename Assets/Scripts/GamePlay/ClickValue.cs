@@ -6,14 +6,14 @@ public class ClickValue : IClickValue
     private readonly float _multiplyFactor = 0.1f;
 
     private ClickConfig _clickConfig;
-    private AutoCollectorConfig _autoCollectorConfig;
+    private AutoCollectorConfig _collectorConfig;
 
-    public int Value => _clickConfig.Reward + (int)(_multiplyFactor * _autoCollectorConfig.Reward);
+    public int Value => _clickConfig.GetReward() + (int)(_multiplyFactor * _collectorConfig.Reward);
 
     [Inject]
-    private void Construct(ClickConfig clickConfig, AutoCollectorConfig autoCollectorConfig)
+    private void Construct(ClickConfig clickConfig, AutoCollectorConfig collectorConfig)
     {
         _clickConfig = clickConfig;
-        _autoCollectorConfig = autoCollectorConfig;
+        _collectorConfig = collectorConfig;
     }
 }
