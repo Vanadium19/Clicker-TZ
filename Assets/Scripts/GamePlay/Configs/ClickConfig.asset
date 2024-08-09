@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ClickConfig
   m_EditorClassIdentifier: 
   _reward: 5
-  _multiplyFactor: 1
+  _variableFactor: 1
+  _variables: 020000000100000005000000
