@@ -1,26 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New ClickConfig", menuName = "Clicks/Create new ClickConfig", order = 51)]
-public class ClickConfig : ScriptableObject
+namespace Gameplay.Configs
 {
-    [SerializeField] private int _reward = 1;
-    [SerializeField] private int _variableFactor = 1;
-    [SerializeField] private List<ClicksValueVariable> _variables;
-
-    private void OnValidate()
+    [CreateAssetMenu(fileName = "New ClickConfig", menuName = "Clicks/Create new ClickConfig", order = 51)]
+    public class ClickConfig : ScriptableObject
     {
-        if (_reward <= 0)
-            _reward = 1;
-    }
+        [SerializeField] private int _reward = 1;
+        [SerializeField] private int _variableFactor = 1;
+        [SerializeField] private List<ClicksValueVariable> _variables;
 
-    public int GetReward()
-    {
-        int variablesSum = _variableFactor;
+        private void OnValidate()
+        {
+            if (_reward <= 0)
+                _reward = 1;
+        }
 
-        foreach (var variable in _variables)
-            variablesSum += (int)variable;
+        public int GetReward()
+        {
+            int variablesSum = _variableFactor;
 
-        return _reward + variablesSum;
+            foreach (var variable in _variables)
+                variablesSum += (int)variable;
+
+            return _reward + variablesSum;
+        }
     }
 }

@@ -1,31 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickEffectsPool : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private ClickEffect _clickEffectPrefab;
-    [SerializeField] private Transform _canvas;
-
-    private Queue<ClickEffect> _spawnQueue = new Queue<ClickEffect>();
-
-    public void Push(ClickEffect textAnimation)
+    public class ClickEffectsPool : MonoBehaviour
     {
-        textAnimation.gameObject.SetActive(false);
-        _spawnQueue.Enqueue(textAnimation);
-    }
+        [SerializeField] private ClickEffect _clickEffectPrefab;
+        [SerializeField] private Transform _canvas;
 
-    public ClickEffect Pull()
-    {
-        if (_spawnQueue.Count == 0)
-            return Create();
+        private Queue<ClickEffect> _spawnQueue = new Queue<ClickEffect>();
 
-        return _spawnQueue.Dequeue();
-    }
+        public void Push(ClickEffect textAnimation)
+        {
+            textAnimation.gameObject.SetActive(false);
+            _spawnQueue.Enqueue(textAnimation);
+        }
 
-    private ClickEffect Create()
-    {
-        var textAnimation = Instantiate(_clickEffectPrefab, _canvas);
-        textAnimation.Initialize(this);
-        return textAnimation;
+        public ClickEffect Pull()
+        {
+            if (_spawnQueue.Count == 0)
+                return Create();
+
+            return _spawnQueue.Dequeue();
+        }
+
+        private ClickEffect Create()
+        {
+            var textAnimation = Instantiate(_clickEffectPrefab, _canvas);
+            textAnimation.Initialize(this);
+            return textAnimation;
+        }
     }
 }

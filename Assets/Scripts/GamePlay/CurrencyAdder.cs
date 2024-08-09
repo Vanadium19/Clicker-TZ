@@ -1,22 +1,27 @@
+using Gameplay.Interfaces;
+using Settings;
 using UniRx;
 using UnityEngine;
 
-public class CurrencyAdder : MonoBehaviour, ICurrencyAdder
+namespace Gameplay
 {
-    private ReactiveProperty<int> _clicksCount;
-
-    public IReadOnlyReactiveProperty<int> ClicksCount => _clicksCount;
-
-    private void Awake()
+    internal class CurrencyAdder : MonoBehaviour, ICurrencyAdder
     {
-        _clicksCount = new ReactiveProperty<int>();
+        private ReactiveProperty<int> _clicksCount;
 
-        _clicksCount.Value = GameSaver.ClicksCount;
-    }
+        public IReadOnlyReactiveProperty<int> ClicksCount => _clicksCount;
 
-    public void AddCurrency(int value)
-    {
-        _clicksCount.Value += value;
-        GameSaver.SaveClicks(_clicksCount.Value);
+        private void Awake()
+        {
+            _clicksCount = new ReactiveProperty<int>();
+
+            _clicksCount.Value = GameSaver.ClicksCount;
+        }
+
+        public void AddCurrency(int value)
+        {
+            _clicksCount.Value += value;
+            GameSaver.SaveClicks(_clicksCount.Value);
+        }
     }
 }

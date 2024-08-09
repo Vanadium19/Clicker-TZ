@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public static class GameSaver
+namespace Settings
 {
-    private static readonly int _defaultCount = 0;
-    private static readonly string _clicks = "Clicks";
-
-    public static int ClicksCount => PlayerPrefs.GetInt(_clicks, _defaultCount);
-
-    public static void SaveClicks(int value)
+    public static class GameSaver
     {
-        if (value <= ClicksCount)
-            return;
+        private static readonly int _defaultCount = 0;
+        private static readonly string _clicks = "Clicks";
 
-        PlayerPrefs.SetInt(_clicks, value);
-        PlayerPrefs.Save();
+        public static int ClicksCount => PlayerPrefs.GetInt(_clicks, _defaultCount);
+
+        public static void SaveClicks(int value)
+        {
+            if (value <= ClicksCount)
+                return;
+
+            PlayerPrefs.SetInt(_clicks, value);
+            PlayerPrefs.Save();
+        }
     }
 }

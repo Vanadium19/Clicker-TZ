@@ -1,8 +1,11 @@
 using UniRx;
 
-public interface ICurrencyAdder
+namespace Gameplay.Interfaces
 {
-    public IReadOnlyReactiveProperty<int> ClicksCount { get; }
+    public interface ICurrencyAdder
+    {
+        public IReadOnlyReactiveProperty<int> ClicksCount { get; }
 
-    public void AddCurrency(int value);
+        public void AddCurrency(int value);
+    }
 }

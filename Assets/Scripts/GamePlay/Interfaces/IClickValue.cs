@@ -1,4 +1,7 @@
-public interface IClickValue
+namespace Gameplay.Interfaces
 {
-    public int Value { get; }
+    public interface IClickValue
+    {
+        public int Value { get; }
+    }
 }

@@ -1,11 +1,12 @@
-using UnityEngine;
-
-public enum ClicksValueVariable
+namespace Gameplay.Configs
 {
-    Invalid = 0,
-    One,
-    Two,
-    Three,
-    Four,
-    Five,
+    public enum ClicksValueVariable
+    {
+        Invalid = 0,
+        One,
+        Two,
+        Three,
+        Four,
+        Five,
+    }
 }
