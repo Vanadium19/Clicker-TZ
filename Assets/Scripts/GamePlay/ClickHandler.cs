@@ -4,20 +4,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-[RequireComponent(typeof(ClickEffectsPool))]
+[RequireComponent(typeof(ClickEffectsPool), typeof(Animator))]
 public class ClickHandler : MonoBehaviour, IPointerClickHandler
 {
     private IClickValue _clickValue;
     private ICurrencyAdder _currencyAdder;
     private CritConfig _critConfig;
     private ClickEffectsPool _pool;
-
+    private Animator _animator;
     private bool _isCritTime;
     private int _critReward;
 
     private void Awake()
     {
         _pool = GetComponent<ClickEffectsPool>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -31,6 +32,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     {
         int clickValue = GetClickValue();
 
+        _animator.SetTrigger("Click");
         _currencyAdder.AddCurrency(clickValue);
         _pool.Pull().Play(clickValue);
     }

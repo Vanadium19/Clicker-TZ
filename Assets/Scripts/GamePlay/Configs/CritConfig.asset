@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CritConfig
   m_EditorClassIdentifier: 
   _divider: 1
-  _delay: 10
+  _delay: 7
